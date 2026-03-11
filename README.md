@@ -1,16 +1,36 @@
-# React + Vite
+# 🦖 Mesozoic Painel - Full Stack Personal Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Painel interativo para exploração e gerenciamento de dados em um "parque mesozoico".
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📝 Sobre o Mesozoic Painel
+Este é um projeto **Full Stack** desenvolvido para consolidar conhecimentos em integração de APIs, manipulação de arquivos JSON e criação de interfaces responsivas. O sistema simula um painel de controle de um parque de dinossauros, incluindo informações sobre espécies e espécimes, tal qual um futuro sistema de câmeras.
 
-## React Compiler
+## 🚀 Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Front-end
+* **React + Vite**: Performance e rapidez no desenvolvimento.
+* **CSS3**: Estilização customizada (Loading screens, Sidebars).
+* **JavaScript (ES6+)**: Lógica de interface e manipulação de estado.
 
-## Expanding the ESLint configuration
+### Back-end
+* **Node.js**: Ambiente de execução.
+* **Express**: Framework para criação da API.
+* **File System (fs)**: Persistência de dados via JSON.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Funcionalidades
+✅ Tela de Loading personalizada;
+
+⬜ Implementação de efeitos sonoros globais (em progresso);
+
+✅ Sidebar dinâmica com opções de navegação;
+
+⬜ Mapa interativo;
+
+✅ Listagem de dinossauros via API própria;
+
+⬜ Simulação de banco de dados dos Genes;
+
+⬜ Controle Recintos e seus espécime;
+
+⬜ Visualização (simulada) por câmeras.
