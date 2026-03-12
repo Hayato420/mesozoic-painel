@@ -4,33 +4,41 @@
 
 
 ## 📝 Sobre o Mesozoic Painel
-Este é um projeto **Full Stack** desenvolvido para consolidar conhecimentos em integração de APIs, manipulação de arquivos JSON e criação de interfaces responsivas. O sistema simula um painel de controle de um parque de dinossauros, incluindo informações sobre espécies e espécimes, tal qual um futuro sistema de câmeras.
+Este é um projeto **Full Stack** desenvolvido para consolidar e aprimorar conhecimentos em *criação de interfaces responsivas, integração de APIs e manipulação de arquivos JSON*. O sistema simula um painel de controle de um parque com animais pré-históricos, atualmente contendo informações sobre espécies e, futuramente, outras funcionalidades planejadas.
 
 ## 🚀 Tecnologias Utilizadas
 
 ### Front-end
-* **React + Vite**: Performance e rapidez no desenvolvimento.
-* **CSS3**: Estilização customizada (Loading screens, Sidebars).
-* **JavaScript (ES6+)**: Lógica de interface e manipulação de estado.
+* **React (Biblioteca de UI)**: Composição da *lógica* visual e *Otimiza* User Experience **(UX)**.
+
+* **Vite (Build Tool)**: Favorece Developer Experience **(DX)** e *Otimização* final do site.
+
+* **CSS3 (Layout e Design System)**: Estilização *modular* + Animações *customizadas*.
+
+* **JavaScript (ES6+)**: *Manipulação* de estados + *Hooks* + *Lógica* de interface dinâmica.
 
 ### Back-end
-* **Node.js**: Ambiente de execução.
-* **Express**: Framework para criação da API.
-* **File System (fs)**: Persistência de dados via JSON.
+* **Node.js (Runtime)**: Ambiente de execução do *server* e gerenciamento de pacotes.
+
+* **Express (Framework Web)**: Cria *roteamento* e *API REST própria*.
+
+* **JSON & fs (Persistência de Dados)**: Permite *mock* de banco de dados e armazenamento das informações em um ambiente simulado realista.
 
 ## 🛠️ Funcionalidades
-✅ Tela de Loading personalizada;
+✅ Concluído | 🟦 Em desenvolvimento | ⬜ Planejado
 
-⬜ Implementação de efeitos sonoros globais (em progresso);
+✅ **Loading Screen -->** Exibida por simulação de latência;
 
-✅ Sidebar dinâmica com opções de navegação;
+✅ **Efeitos Sonoros -->** Implementação de áudios globais para imersão na interface;
 
-⬜ Mapa interativo;
+✅ **Sidebar Dinâmica -->** Menu responsivo com rotas de navegação;
 
-✅ Listagem de dinossauros via API própria;
+🟦 **Catálogo de Dinossauros -->** Informações específicas de cada espécie catalogada, integrado com a API supramencionada;
 
-⬜ Simulação de banco de dados dos Genes;
+⬜ **Mapa Interativo -->** Visualização geográfica e responsiva da infraestrutura;
 
-⬜ Controle Recintos e seus espécime;
+⬜ **Mock de Dados -->** Simulação de banco de dados para sequenciamento de genes;
 
-⬜ Visualização (simulada) por câmeras.
+⬜ **Gestão de Recintos -->** Sistema de monitoramento informacional dos habitats e seus respectivos espécimes;
+
+⬜ **Monitoramento por Câmeras -->** Sistema de visualização simulada em tempo real.
