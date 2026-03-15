@@ -1,0 +1,58 @@
+.boot {
+  margin: 0;
+  background-color: black;
+  color: #00ff00;
+  font-family: monospace;
+
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.login {
+  cursor: pointer;
+}
+
+.blink {
+  animation: piscada 1s infinite;
+}
+
+@keyframes piscada{
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.efeitoRuidoDeTela {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99;
+
+  background-image: 
+  url("/assets/imgs/ruidoDeTela.png");
+
+  background-repeat: repeat-y;
+  background-size: 100vw 10vh;
+  mix-blend-mode: screen;
+  animation: movimentoRuido 40s linear infinite, piscadaRuido 5s infinite;
+}
+
+@keyframes movimentoRuido{
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 100vh;
+  }
+}
+
+@keyframes piscadaRuido{
+  0% { opacity: 0.35; }
+  50% { opacity: 0.5; }
+  100% { opacity: 0.35; }
+}

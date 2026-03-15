@@ -7,7 +7,7 @@ import Recintos from "../components/Recintos";
 import Cameras from "../components/Cameras";
 
 import "../styles/Sistema.css";
-import { tocarSom } from "../utils/audioGerenciador"
+import audioGerenciador from "../utils/audioGerenciador"
 
 export default function Sistema() {
   const [aba, setAba] = useState(null)
@@ -20,7 +20,7 @@ export default function Sistema() {
 
     const clickGlobal = (e) => {
       if (e.target.closest("button")) {
-        tocarSom("click")
+        audioGerenciador.tocarSom("click")
       }
     }
 
