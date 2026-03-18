@@ -1,13 +1,21 @@
 .catalogo{
-    font-family: monospace;
-    font-size: 2vw;
-    color: white;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5vh;
+}
+
+.headerCatalogo{
+  font-family: monospace;
+  font-size: 4vh;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vh;
 }
 
 .barraPesquisa{
@@ -49,7 +57,64 @@
   align-items: center;
 }
 
-.modalConteudo{
+
+
+.fechar{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+
+
+  border: 2px solid #00ff88;
+  color: #00ff88;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/*SOMENTE MODAL DE ADD USA*/
+.modalAddEspecie{
+  position: relative;
+
+  width: 20vw;
+  height: auto;
+
+  padding: 5vh;
+
+  background: black;
+  border: 2px solid #00ff88;
+  font-size: 1rem;
+  font-family: monospace;
+  color: #00ff88;
+}
+
+.formularioAddDino{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+}
+
+.formularioAddDino input{
+  font-size:0.5;
+
+  background-color: black;
+  border: 2px solid #00ff88;
+  color: #00ff88;
+
+  width: 80%;
+  line-height: 2;
+  padding: 6px 10px;
+}
+
+.formularioAddDino input::placeholder{
+  color: white;
+  opacity: 0.8;
+}
+
+/*SOMENTE MODAL INFOS USA*/
+.modalInfos{
   position: relative;
 
   width: 50vw;
@@ -67,25 +132,12 @@
   box-sizing: border-box;
 }
 
-.modalConteudo::-webkit-scrollbar{
+.modalInfos::-webkit-scrollbar{
   width: 8px;
 }
 
-.modalConteudo::-webkit-scrollbar-thumb{
+.modalInfos::-webkit-scrollbar-thumb{
   background: #00ff88;
-}
-
-.fechar{
-  position: absolute;
-  top: 15px;
-  right: 15px;
-
-
-
-  border: 2px solid #00ff88;
-  color: #00ff88;
-  font-size: 1rem;
-  cursor: pointer;
 }
 
 .dinoHeader{

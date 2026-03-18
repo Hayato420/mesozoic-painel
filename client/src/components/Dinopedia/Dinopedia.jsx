@@ -1,10 +1,32 @@
 import { useState, useEffect, useMemo } from "react"
-import "../styles/Dinopedia.css"
+
+import { ModalInfos, ModalAddEspecies } from "./ModaisDinopedia"
+
+import "../../styles/Dinopedia.css"
 
 export default function Dinopedia() {
   const [dinossauros, setDinossauros] = useState([])
   const [busca, setBusca] = useState("")
   const [selecionado, setSelecionado] = useState(null)
+  const [adicaoAberta, setAdicaoAberta] = useState(false)
+
+  const adicionarDino = async (novoDino) => {
+    try {
+      const res = await fetch("http://localhost:3000/dinos", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(novoDino)
+      })
+  
+      const data = await res.json()
+  
+      setDinossauros(prev => [...prev, data])
+    } catch (err) {
+      console.error("Erro ao adicionar:", err)
+    }
+  }
 
   const dinosFiltrados = useMemo(() => { //useMemo evita recalcular tudo toda vez, otimizando performance
     return dinossauros
@@ -21,7 +43,7 @@ export default function Dinopedia() {
         const data = await res.json()
         setDinossauros(data)
       } catch(err){
-        console.error("Erro:", err)
+        console.error("Erro na busca de espécies: ", err)
       }
     }
 
@@ -31,7 +53,12 @@ export default function Dinopedia() {
   return (
     <div className="catalogo">
 
-        <h2>Catálogo de Espécies</h2>
+        <header className="headerCatalogo">
+          <h2>Catálogo de Espécies</h2>
+          <button onClick={() => setAdicaoAberta(true)}>
+            Adicionar
+          </button>
+        </header>
 
         <input className="barraPesquisa"
           type="text"
@@ -53,34 +80,16 @@ export default function Dinopedia() {
         </div>
 
 
-      {selecionado && (
-        <div className="modal">
-          <div className="modalConteudo">
-            <button
-              className="fechar"
-              onClick={() => setSelecionado(null)}
-            >
-              ✕
-            </button>
+      <ModalInfos
+        selecionado={selecionado}
+        fechar={() => setSelecionado(null)}
+      />
 
-            <div className="dinoHeader">
-              <p><strong>{selecionado.nome}</strong></p>
-              <img
-                src={selecionado.imagem}
-                alt={selecionado.nome}
-                className="dinoImagem"
-              />
-            </div>
-
-            <div className="dinoInfo">
-              <p><strong>Período:</strong> {selecionado.periodo}</p>
-              <p><strong>Dieta:</strong> {selecionado.dieta}</p>
-              <p><strong>Tamanho:</strong> {selecionado.tamanho}</p>
-            </div>
-
-          </div>
-        </div>
-      )}
+      <ModalAddEspecies
+        aberto={adicaoAberta}
+        fechar={() => setAdicaoAberta(false)}
+        especieAdicionada={adicionarDino}
+      />
 
     </div>
   )

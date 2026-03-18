@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 import Sidebar from "../components/Sidebar";
-import Dinopedia from "../components/Dinopedia";
+import Dinopedia from "../components/Dinopedia/Dinopedia";
 import Dnas from "../components/Dna";
 import Recintos from "../components/Recintos";
 import Cameras from "../components/Cameras";

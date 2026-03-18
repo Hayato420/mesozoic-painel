@@ -12,15 +12,10 @@ app.use(express.json()) //servidor entender json
 //status(404) - "Not Found"
 //status(500) - "Internal Server Error"
 
-app.get("/dinos", (req, res) => {
-  fs.readFile("dinos.json", "utf8", (err, data) => {
-    if (err) {
-      return res.status(500).json({erro: "Erro ao ler arquivo"})
-    }
-
-    res.json(JSON.parse(data)) //parse transforma texto em objetos para o js entender, res envia
-  })
+app.get("/", (req, res) => {
+  res.send("API de Dinossauros rodando 🦖")
 })
+
 
 app.post("/dinos", (req, res) => {
   const novoDino = req.body //dados enviados pelo usuário
@@ -29,23 +24,25 @@ app.post("/dinos", (req, res) => {
     if (err) {
       return res.status(500).json({erro: "Erro ao ler arquivo"})
     }
+    
+    const dinos = JSON.parse(data)//parse para manipular
 
-    const dinos = JSON.parse(data) // parse para manipular
+    novoDino.id = dinos.length ? dinos[dinos.length - 1].id + 1 : 1//adição das informações nos objetos, gerando id novo sem depender do usuário
 
-    dinos.push(novoDino) //adição das informações nos objetos
+    dinos.push(novoDino)
 
-    fs.writeFile("dinos.json", JSON.stringify(dinos, null, 2), (err) => { //retransforma objetos em texto e reescreve arquivo
+    fs.writeFile("dinos.json", JSON.stringify(dinos, null, 2), (err) => {//retransforma objetos em texto e reescreve arquivo
       if (err) {
         return res.status(500).json({erro: "Erro ao salvar arquivo"})
       }
 
-      res.status(201).json({mensagem: "Dinossauro adicionado!"})
+      res.status(201).json(novoDino)
     })
   })
 })
 
 app.delete("/dinos/:id", (req, res) => {
-  const id = req.params.id //captura id
+  const id = Number(req.params.id) //captura id
 
   fs.readFile("dinos.json", "utf8", (err, data) => { //abre arquivo
     if (err) {
