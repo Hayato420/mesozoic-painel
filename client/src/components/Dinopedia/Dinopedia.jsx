@@ -15,17 +15,14 @@ export default function Dinopedia() {
   
 
   const dinosFiltrados = useMemo(() => { //useMemo evita recalcular tudo toda vez, otimizando performance
-    return dinossauros
-      .filter(dino =>
-        (dino.nome || "").toLowerCase().includes(busca.toLowerCase())
-      )
-      .sort((a,b) => a.nome.localeCompare(b.nome, "pt"))
+    return (Array.isArray(dinossauros) ? dinossauros : [])
+            .filter(dino => (dino.nome || "").toLowerCase().includes(busca.toLowerCase()))
   }, [dinossauros, busca])
 
   useEffect(() =>{
     async function carregarDinos(){
       try{
-        const res = await fetch("http://localhost:3001/dinos")
+        const res = await fetch("http://localhost:3001/especies")
         const data = await res.json()
         setDinossauros(data)
       } catch(err){

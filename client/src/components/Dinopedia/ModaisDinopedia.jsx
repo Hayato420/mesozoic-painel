@@ -33,7 +33,7 @@ const alerta = Swal.mixin({
 //FUNÇÃO DE ADIÇÃO
 const addEspecie = async (novoDino, fechar, setDinossauros) =>{
     try {
-      const res = await fetch("http://localhost:3001/dinos",{
+      const res = await fetch("http://localhost:3001/especies",{
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -71,7 +71,7 @@ const addEspecie = async (novoDino, fechar, setDinossauros) =>{
 //FUNÇÃO DE EDIÇÃO
 const editEspecie = async (novasInfos, id, fechar, setDinossauros) =>{
       try {
-        const res = await fetch(`http://localhost:3001/dinos/${id}`, {
+        const res = await fetch(`http://localhost:3001/especies/${id}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(novasInfos)
@@ -115,7 +115,7 @@ const delEspecie = async (id, nome, fechar, setDinossauros) =>{
 
     if (resultado.isConfirmed) {
       try{
-        const res = await fetch(`http://localhost:3001/dinos/${id}`, {
+        const res = await fetch(`http://localhost:3001/especies/${id}`, {
           method: "DELETE",
         })
 
@@ -206,13 +206,13 @@ export function ModalAddEspecie({adicaoAberta, fechar, setDinossauros}){
 
   return(
     <div className="modal">
-      <div className="modalAddEspecie" onClick={(e) => e.stopPropagation()}>
+      <div className="modalAddEditEspecie" onClick={(e) => e.stopPropagation()}>
         <button className="fechar" onClick={fechar}>
           ✕
         </button>
 
-        <form onSubmit={handleSubmit} className="formularioAddDino">
-          <h2>Adicionar Dinossauro</h2>
+        <form onSubmit={handleSubmit} className="formularioAddEditDino">
+          <h2>Adicionar Espécie</h2>
           <input type="text" placeholder="Insira o NOME da espécie" value={nome} onChange={(e) => setNome(e.target.value)}/>
           <input type="text" placeholder="Insira o PERÍODO da espécie" value={periodo} onChange={(e) => setPeriodo(e.target.value)}/>
           <input type="text" placeholder="Insira a DIETA da espécie" value={dieta} onChange={(e) => setDieta(e.target.value)}/>
@@ -280,17 +280,17 @@ export function ModalEditEspecie({editAberta, fechar, dino, setDinossauros}){
 
   return (
     <div className="modal">
-      <div className="modalAddEspecie" onClick={(e) => e.stopPropagation()}>
+      <div className="modalAddEditEspecie" onClick={(e) => e.stopPropagation()}>
         <button className="fechar" onClick={fechar}>✕</button>
 
-        <form onSubmit={handleSubmit} className="formularioAddDino">
-          <h2>Editando {dino.nome}</h2>
+        <form onSubmit={handleSubmit} className="formularioAddEditDino">
+          <h2>Editar {dino.nome}</h2>
           
           <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Nome" />
           <input type="text" value={periodo} onChange={(e) => setPeriodo(e.target.value)} placeholder="Período" />
           <input type="text" value={dieta} onChange={(e) => setDieta(e.target.value)} placeholder="Dieta" />
           <input type="text" value={tamanho} onChange={(e) => setTamanho(e.target.value)} placeholder="Tamanho" />
-          <textarea value={descricao} onChange={(e) => setDescricao(e.target.value)} placeholder="Descrição" />
+          <input type="text" value={descricao} onChange={(e) => setDescricao(e.target.value)} placeholder="Insira a DESCRIÇÃO da espécie"/>
 
           <div className="selecaoImagem">
             <input type="file" ref={arquivoRef} onChange={escolhaDoArquivo} style={{ display: 'none' }} accept="image/*" />

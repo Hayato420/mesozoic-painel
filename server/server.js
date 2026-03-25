@@ -17,7 +17,7 @@ const pool = new Pool({
   database: process.env.DB_DATABASE,
 })
 
-app.get('/dinos', async (_, res) =>{
+app.get('/especies', async (_, res) =>{
   try{
     const {rows} = await pool.query('SELECT * FROM especies ORDER BY id DESC')
     res.status(200).json(rows)
@@ -26,7 +26,7 @@ app.get('/dinos', async (_, res) =>{
   }
 })
 
-app.post('/dinos', async (req, res) =>{
+app.post('/especies', async (req, res) =>{
   const {nome, periodo, dieta, tamanho, descricao, imagem} = req.body
   try{
 
@@ -37,11 +37,14 @@ app.post('/dinos', async (req, res) =>{
     res.status(201).json(rows[0])
 
   } catch (err){
+    console.error("--- ERRO NO POST ---");
+    console.error(err.message); // Isso vai imprimir o erro real no terminal
+    console.error("--------------------");
     res.status(500).json({error: "Erro interno."})
   }
 })
 
-app.patch('/dinos/:id', async (req, res) =>{
+app.patch('/especies/:id', async (req, res) =>{
   const {id} = req.params
   const fields = req.body
 
@@ -84,7 +87,7 @@ app.patch('/dinos/:id', async (req, res) =>{
   }
 })
 
-app.delete('/dinos/:id', async (req, res) =>{
+app.delete('/especies/:id', async (req, res) =>{
   const {id} = req.params
   try{
 

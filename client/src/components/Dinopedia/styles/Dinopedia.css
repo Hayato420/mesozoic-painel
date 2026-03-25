@@ -93,7 +93,81 @@
 }
 
 /*SOMENTE MODAL DE ADD USA*/
-.modalAddEspecie{
+.modalAddEditEspecie{
+  position: relative;
+
+  width: 20vw;
+  height: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  padding: 5vh;
+
+  background: black;
+  border: 2px solid #00ff88;
+  font-size: 1rem;
+  font-family: monospace;
+  color: #00ff88;
+}
+
+.formularioAddEditDino{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+}
+
+.formularioAddEditDino h2{
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  line-height: 1.2;
+  max-width: 100%;
+}
+
+.formularioAddEditDino input{
+  font-size:0.8rem;
+
+  background-color: black;
+  border: 2px solid #00ff88;
+  color: #00ff88;
+
+  width: 80%;
+  line-height: 2;
+  padding: 6px 10px;
+}
+
+.formularioAddDino input::placeholder{
+  color: white;
+  opacity: 0.9;
+}
+
+.formularioAddDino input:focus{
+  outline: none;
+  border-color: #00ff88;
+}
+
+.selecaoImagem{
+  width: 100%;
+  font-size: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.selecaoImagem p{
+  max-width: 100%;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+/*SOMENTE MODAL EDIT USA*/
+
+/*SOMENTE MODAL DE ADD USA*/
+.modalAddEditEspecie{
   position: relative;
 
   width: 20vw;
@@ -151,7 +225,6 @@
   overflow-wrap: break-word;
   text-align: center;
 }
-
 /*SOMENTE MODAL INFOS USA*/
 .modalInfos{
   position: relative;
@@ -183,6 +256,14 @@
   font-size: 5vh;
   text-align: center;
   margin: 2vh 0;
+}
+
+.dinoHeader p{
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  line-height: 1.2;
+  max-width: 100%;
 }
 
 .dinoImagem{
