@@ -1,6 +1,8 @@
-import { useState, useEffect, useMemo } from "react"
+import {useState, useEffect, useMemo} from "react"
 
-import { ModalAddEspecie, ModalInfos, ModalEditEspecie } from "./ModaisDinopedia"
+import ModalAddEspecie from "./Modais/ModalAdd"
+import ModalEditEspecie from "./Modais/ModalEdit"
+import ModalInfos from "./Modais/ModalInfos"
 
 import "./styles/Dinopedia.css"
 
@@ -8,11 +10,14 @@ export default function Dinopedia() {
   const [dinossauros, setDinossauros] = useState([])//serve para mostrar os dinossauros catalogados
   const [busca, setBusca] = useState("")//serve para pesquisar dinossauros na searchbar
   const [selecionado, setSelecionado] = useState(null)//serve para mostrar as informações da espécie selecionada, também servindo para excluí-la
-  const [addAberta, setAddAberta] = useState(false)//serve para abrir o modal de adição de espécie
   const [dinoEditando, setDinoEditando] = useState(null)//diz qual dino está sendo editado
-  const [editAberta, setEditAberta] = useState(false)//serve para abrir o modal de edição de espécie
 
-  
+  const [modal, setModal] = useState(null)
+  const MODAIS ={
+    ADD: "add",
+    EDIT: "edit",
+    INFOS: "infos"
+  }
 
   const dinosFiltrados = useMemo(() => { //useMemo evita recalcular tudo toda vez, otimizando performance
     return (Array.isArray(dinossauros) ? dinossauros : [])
@@ -38,7 +43,7 @@ export default function Dinopedia() {
 
         <header className="headerCatalogo">
           <h2>Catálogo de Espécies</h2>
-          <button onClick={() => setAddAberta(true)}>
+          <button onClick={() => setModal(MODAIS.ADD)}>
             Adicionar
           </button>
         </header>
@@ -54,7 +59,10 @@ export default function Dinopedia() {
           {dinosFiltrados.map(dino => (
             <button
               key={dino.id}
-              onClick={() => setSelecionado(dino)}
+              onClick={() => {
+                setSelecionado(dino)
+                setModal(MODAIS.INFOS)
+              }}
               className={selecionado?.id === dino.id ? "ativo" : ""}
             >
               {dino.nome}
@@ -62,32 +70,31 @@ export default function Dinopedia() {
           ))}
         </div>
 
-      <ModalAddEspecie
-        adicaoAberta={addAberta}
-        fechar={() => setAddAberta(false)}
-        setDinossauros={setDinossauros}
-      />
-
-      <ModalEditEspecie 
-        editAberta={editAberta} 
-        fechar={() => {
-          setEditAberta(false)
-          setDinoEditando(null)
-        }}
-        dino={dinoEditando} 
-        setDinossauros={setDinossauros} 
-      />
-
-      <ModalInfos
-        abrirEdit={() =>{
-          setDinoEditando(selecionado)
-          setEditAberta(true)
-          setSelecionado(null)
-        }}
-        fechar={() => setSelecionado(null)}
-        selecionado={selecionado}
-        setDinossauros={setDinossauros}
-      />
+      {/*EXIBIÇÃO DOS MODAIS*/}
+      {modal === MODAIS.ADD && <ModalAddEspecie
+                                    fechar={() => setModal(null)}
+                                    setDinossauros={setDinossauros}
+                                  />}
+      
+      {modal === MODAIS.EDIT && <ModalEditEspecie
+                                    fechar={() => {
+                                      setModal(null)
+                                      setDinoEditando(null)
+                                    }}
+                                    dinoEditando={dinoEditando} 
+                                    setDinossauros={setDinossauros}
+                                  />}
+      
+      {modal === MODAIS.INFOS && <ModalInfos 
+                                      abrirEdit={() =>{
+                                        setDinoEditando(selecionado)
+                                        setModal(MODAIS.EDIT)
+                                        setSelecionado(null)
+                                      }}
+                                      fechar={() => setModal(null)}
+                                      selecionado={selecionado}
+                                      setDinossauros={setDinossauros}
+                                    />}
     </div>
   )
 }

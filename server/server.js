@@ -104,4 +104,4 @@ app.delete('/especies/:id', async (req, res) =>{
   }
 })
 
-app.listen(PORT, () => {console.log(`Servidor rodando, Dinopedia ON.`)})
+app.listen(PORT)

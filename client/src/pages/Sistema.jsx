@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import {useState, useEffect} from "react";
 
 import Sidebar from "../components/Sidebar";
 import Dinopedia from "../components/Dinopedia/Dinopedia";
@@ -16,7 +16,7 @@ export default function Sistema() {
   }, [aba])
 
   //SOM DE CLIQUE GLOBAL
-  useEffect(() => {
+  useEffect(() =>{
 
     const clickGlobal = (e) => {
       if (e.target.closest("button")) {

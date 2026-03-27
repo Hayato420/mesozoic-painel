@@ -10,7 +10,7 @@ body {
   color: #00ff88;
 }
 
-.sidebar {
+.sidebar{
   width: 20vw;
   border-right: 2px solid #00ff88;
   padding: 25px;
@@ -19,6 +19,10 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 15px;
+}
+
+.sidebar button{
+  font-size: 1rem;
 }
 
 .headerSidebar{
@@ -36,7 +40,7 @@ body {
   flex-shrink: 0;
 }
 
-button {
+button{
   background: transparent;
   border: 1px solid #00ff88;
   color: #00ff88;
