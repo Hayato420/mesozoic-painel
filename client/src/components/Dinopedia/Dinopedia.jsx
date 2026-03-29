@@ -6,7 +6,7 @@ import ModalInfos from "./Modais/ModalInfos"
 
 import "./styles/Dinopedia.css"
 
-export default function Dinopedia() {
+export default function Dinopedia(){
   const [dinossauros, setDinossauros] = useState([])//serve para mostrar os dinossauros catalogados
   const [busca, setBusca] = useState("")//serve para pesquisar dinossauros na searchbar
   const [selecionado, setSelecionado] = useState(null)//serve para mostrar as informações da espécie selecionada, também servindo para excluí-la
@@ -38,24 +38,24 @@ export default function Dinopedia() {
     carregarDinos()
   }, [])
 
-  return (
+  return(
     <div className="catalogo">
 
         <header className="headerCatalogo">
-          <h2>Catálogo de Espécies</h2>
+          <h1>Catálogo de Espécies</h1>
+
           <button onClick={() => setModal(MODAIS.ADD)}>
             Adicionar
           </button>
+
+          <input className="barraPesquisa"
+            type="text"
+            placeholder="Insira a espécie para buscar"
+            value={busca}
+            onChange={(e) => setBusca(e.target.value)}
+          />
         </header>
-
-        <input className="barraPesquisa"
-          type="text"
-          placeholder="Insira a espécie para buscar"
-          value={busca}
-          onChange={(e) => setBusca(e.target.value)}
-        />
-
-        <div className="listaEspecies">
+        <div className="listaEspeciesDinopedia">
           {dinosFiltrados.map(dino => (
             <button
               key={dino.id}
