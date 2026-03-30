@@ -1,22 +1,19 @@
-import { useState, useRef, useEffect } from "react";
+import {useState, useEffect} from "react"
 
-import Sidebar from "../components/Sidebar";
-import Dinopedia from "../components/Dinopedia/Dinopedia";
-import Dnas from "../components/Dna";
-import Recintos from "../components/Recintos";
-import Cameras from "../components/Cameras";
+import Sidebar from "../components/Sidebar"
+import Dinopedia from "../components/Dinopedia/Dinopedia"
+import Laboratorio from "../components/Genes/Laboratorio"
+import Recintos from "../components/Recintos"
+import Cameras from "../components/Cameras"
 
-import "../styles/Sistema.css";
+import "../styles/Sistema.css"
 import audioGerenciador from "../utils/audioGerenciador"
 
-export default function Sistema() {
+export default function Sistema(){
   const [aba, setAba] = useState(null)
-  useEffect(() => {
-    console.log("Aba atual:", aba)
-  }, [aba])
 
   //SOM DE CLIQUE GLOBAL
-  useEffect(() => {
+  useEffect(() =>{
 
     const clickGlobal = (e) => {
       if (e.target.closest("button")) {
@@ -39,7 +36,7 @@ export default function Sistema() {
 
       <div className="conteudo">
         {aba === "dinopedia" && <Dinopedia/>}
-        {aba === "genes" && <h1>Genes</h1>}
+        {aba === "genes" && <Laboratorio/>}
         {aba === "recintos" && <h1>Recintos</h1>}
         {aba === "cameras" && <h1>Câmeras</h1>}
       </div>

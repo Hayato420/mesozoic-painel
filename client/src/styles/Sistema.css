@@ -10,7 +10,7 @@ body {
   color: #00ff88;
 }
 
-.sidebar {
+.sidebar{
   width: 20vw;
   border-right: 2px solid #00ff88;
   padding: 25px;
@@ -21,7 +21,26 @@ body {
   gap: 15px;
 }
 
-button {
+.sidebar button{
+  font-size: 1rem;
+}
+
+.headerSidebar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  font-size: 1.5rem;
+}
+.logo{
+  width: 30px;
+  height: 30px;
+  border: 1px solid #00ff88;
+  flex-shrink: 0;
+}
+
+button{
   background: transparent;
   border: 1px solid #00ff88;
   color: #00ff88;

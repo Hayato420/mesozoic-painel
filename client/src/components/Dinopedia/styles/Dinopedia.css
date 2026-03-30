@@ -1,0 +1,60 @@
+.catalogo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+}
+
+.headerCatalogo{
+  font-family: monospace;
+  font-size: 2rem;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 5vh;
+}
+
+.headerCatalogo h1{
+  margin: 0px;
+}
+
+.catalogo button{
+  font-size: 1rem;
+}
+
+.barraPesquisa{
+  font-size:1rem;
+
+  background-color: black;
+  border: 2px solid #00ff88;
+  color: #00ff88;
+
+  width: 100%;
+  line-height: 2;
+  padding: 6px 10px;
+}
+
+.barraPesquisa::placeholder{
+  color: white;
+  opacity: 0.9;
+}
+
+.barraPesquisa:focus {
+  outline: none;
+  border-color: #00ff88;
+}
+
+.listaEspeciesDinopedia{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5vh;
+}
+
+.listaEspeciesDinopedia button{
+    font-size: 2rem;
+}

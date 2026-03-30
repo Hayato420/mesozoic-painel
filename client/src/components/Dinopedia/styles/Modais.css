@@ -1,0 +1,234 @@
+.modal{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fechar{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+
+
+  border: 2px solid #00ff88;
+  color: #00ff88;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/*MODAIS ADD E EDIT*/
+.modalAddEditEspecie{
+  position: relative;
+
+  width: 20vw;
+  height: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  padding: 5vh;
+
+  background: black;
+  border: 2px solid #00ff88;
+  font-size: 1rem;
+  font-family: monospace;
+  color: #00ff88;
+}
+
+.formularioAddEditDino{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+}
+
+.formularioAddEditDino h2{
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  line-height: 1.2;
+  max-width: 100%;
+}
+
+.formularioAddEditDino input{
+  font-size:0.8rem;
+
+  background-color: black;
+  border: 2px solid #00ff88;
+  color: #00ff88;
+
+  width: 80%;
+  line-height: 2;
+  padding: 6px 10px;
+}
+
+.formularioAddDino input::placeholder{
+  color: white;
+  opacity: 0.9;
+}
+
+.formularioAddDino input:focus{
+  outline: none;
+  border-color: #00ff88;
+}
+
+.selecaoImagem{
+  width: 100%;
+  font-size: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.selecaoImagem p{
+  max-width: 100%;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+.modalAddEditEspecie{
+  position: relative;
+
+  width: 20vw;
+  height: auto;
+
+  padding: 5vh;
+
+  background: black;
+  border: 2px solid #00ff88;
+  font-size: 1rem;
+  font-family: monospace;
+  color: #00ff88;
+}
+
+.formularioAddDino{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+}
+
+.formularioAddDino input{
+  font-size:0.8rem;
+
+  background-color: black;
+  border: 2px solid #00ff88;
+  color: #00ff88;
+
+  width: 80%;
+  line-height: 2;
+  padding: 6px 10px;
+}
+
+.formularioAddDino input::placeholder{
+  color: white;
+  opacity: 0.9;
+}
+
+.formularioAddDino input:focus{
+  outline: none;
+  border-color: #00ff88;
+}
+
+.selecaoImagem{
+  width: 100%;
+  font-size: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.selecaoImagem p{
+  max-width: 100%;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+/*MODAL INFOS*/
+.modalInfos{
+  position: relative;
+
+  width: 50vw;
+  height: auto;
+  max-height: 80vh;
+
+  padding: 5vh;
+
+  background: black;
+  border: 2px solid #00ff88;
+  font-family: monospace;
+  color: #00ff88;
+
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.modalInfos::-webkit-scrollbar{
+  width: 8px;
+}
+
+.modalInfos::-webkit-scrollbar-thumb{
+  background: #00ff88;
+}
+
+#editarEspecie{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+
+
+
+  border: 2px solid #00ff88;
+  color: #00ff88;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.dinoHeader{
+  font-size: 2rem;
+  text-align: center;
+  margin: 2vh 0;
+}
+
+.dinoHeader p{
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  line-height: 1.2;
+  max-width: 100%;
+}
+
+.dinoImagem{
+  border: 2px solid #00ff88;
+  width: 20vw;
+  height: auto;
+}
+
+.dinoInfo{
+  font-size: 1.2rem;
+  text-align: left;
+  max-width: 70ch;
+  line-height: 2;
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}
+
+#containerBotaoDelEspecie{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#botaoDelEspecie{
+  font-size: 1rem;
+  cursor: 'pointer';
+}
