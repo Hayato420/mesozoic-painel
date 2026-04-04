@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2'
-import "../styles/Alertas.css"
+import "./Alertas.css"
 
 //ALERTAS
 export const alerta = Swal.mixin({

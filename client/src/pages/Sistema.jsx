@@ -3,8 +3,8 @@ import {useState, useEffect} from "react"
 import Sidebar from "../components/Sidebar"
 import Dinopedia from "../components/Dinopedia/Dinopedia"
 import Laboratorio from "../components/Genes/Laboratorio"
-import Recintos from "../components/Recintos"
-import Cameras from "../components/Cameras"
+//import Recintos from "../components/Recintos"
+//import Cameras from "../components/Cameras"
 
 import "../styles/Sistema.css"
 import audioGerenciador from "../utils/audioGerenciador"
@@ -30,7 +30,7 @@ export default function Sistema(){
   }, [])
 
   //SIDEBAR COM INTERMEDIO DO SISTEMA
-  return (
+  return(
     <div className="container">
       <Sidebar aba={aba} setAba={setAba} />
 

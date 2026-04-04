@@ -27,7 +27,7 @@
   font-size: 1rem;
 }
 
-.barraPesquisa{
+.barraPesquisaDinopedia{
   font-size:1rem;
 
   background-color: black;
@@ -39,12 +39,12 @@
   padding: 6px 10px;
 }
 
-.barraPesquisa::placeholder{
+.barraPesquisaDinopedia::placeholder{
   color: white;
   opacity: 0.9;
 }
 
-.barraPesquisa:focus {
+.barraPesquisaDinopedia:focus {
   outline: none;
   border-color: #00ff88;
 }

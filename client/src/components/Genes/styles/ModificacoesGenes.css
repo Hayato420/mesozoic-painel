@@ -1,0 +1,128 @@
+.modalModifGene{
+    position: relative;
+
+    width: 20vw;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh;
+    gap: 2vh;
+
+    background: black;
+    border: 2px solid #00ff88;
+}
+
+.modalModifGene h2{
+    font-size: 0.8rem;
+    margin-top: 5vh;
+    text-align: center;
+    width: 100%;
+    gap: 5vh;
+}
+
+.formularioModifGene{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+
+    width: 100%;
+}
+
+
+.formularioModifGene input{
+    font-size:1rem;
+    background-color: black;
+    border: 2px solid #00ff88;
+    color: #00ff88;
+
+    width: 90%;
+    line-height: 2;
+    padding: 6px 10px;
+}
+
+.formularioModifGene input::placeholder{
+    color: white;
+    opacity: 0.9;
+}
+
+.formularioModifGene input:focus{
+    outline: none;
+    border-color: #00ff88;
+}
+
+.fecharModifGene{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.8rem;
+}
+
+/*ADICAO DE GENE*/
+.modalAddGene{
+    position: relative;
+
+    width: 20vw;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh;
+    gap: 2vh;
+
+    background: black;
+    border: 2px solid #00ff88;
+}
+
+.modalAddGene h2{
+    font-size: 0.8rem;
+    margin-top: 5vh;
+    text-align: center;
+    width: 100%;
+    gap: 5vh;
+}
+
+.fecharAddGene{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.8rem;
+}
+
+
+.formularioAddGene{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+
+    width: 100%;
+}
+
+.formularioAddGene input{
+    font-size:1rem;
+    background-color: black;
+    border: 2px solid #00ff88;
+    color: #00ff88;
+
+    width: 90%;
+    line-height: 2;
+    padding: 6px 10px;
+}
+
+.formularioAddGene input::placeholder{
+    color: white;
+    opacity: 0.9;
+}
+
+.formularioAddGene input:focus{
+    outline: none;
+    border-color: #00ff88;
+}
