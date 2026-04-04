@@ -48,7 +48,7 @@ export default function Dinopedia(){
             Adicionar
           </button>
 
-          <input className="barraPesquisa"
+          <input className="barraPesquisaDinopedia"
             type="text"
             placeholder="Insira a espécie para buscar"
             value={busca}
@@ -73,6 +73,7 @@ export default function Dinopedia(){
       {/*EXIBIÇÃO DOS MODAIS*/}
       {modal === MODAIS.ADD && <ModalAddEspecie
                                     fechar={() => setModal(null)}
+                                    dinossauros={dinossauros}
                                     setDinossauros={setDinossauros}
                                   />}
       
@@ -81,7 +82,8 @@ export default function Dinopedia(){
                                       setModal(null)
                                       setDinoEditando(null)
                                     }}
-                                    dinoEditando={dinoEditando} 
+                                    dinoEditando={dinoEditando}
+                                    dinossauros={dinossauros}
                                     setDinossauros={setDinossauros}
                                   />}
       
@@ -91,7 +93,10 @@ export default function Dinopedia(){
                                         setModal(MODAIS.EDIT)
                                         setSelecionado(null)
                                       }}
-                                      fechar={() => setModal(null)}
+                                      fechar={() => {
+                                        setModal(null)
+                                        setSelecionado(null)
+                                      }}
                                       selecionado={selecionado}
                                       setDinossauros={setDinossauros}
                                     />}

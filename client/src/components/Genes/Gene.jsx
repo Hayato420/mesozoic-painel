@@ -1,12 +1,22 @@
+import {useState} from "react"
+import {ModalModifGene, ModalAddGene} from "./ModificacoesGenes"
+import {alerta} from "../Alertas"
+
 import "./styles/Gene.css"
 
-export default function Gene({selecionado}){
+export default function Gene({selecionado, setDinossauros}){
   const stringGene = selecionado?.gene || ""
   const nucleotideos = stringGene.toUpperCase().split('')
+  const [modalAberto, setModalAberto] = useState(null)//modal de modificaçãode gene
 
   const copiarGene = () =>{
     navigator.clipboard.writeText(stringGene)
-    alert("Gene copiado.")
+    alerta.fire({
+              title: 'Operação bem-sucedida.',
+              text: 'Gene copiado para a área de transferência.',
+              showConfirmButton: true,
+              confirmButtonText: 'Fechar'
+    })
   }
 
   const dicionarioImagensGene = {
@@ -40,21 +50,31 @@ export default function Gene({selecionado}){
               <button id="botaoCopiar" onClick={copiarGene}>
                 Copiar Gene
               </button>
-              <button id="botaoEditar">
-                Editar Gene
-              </button>
-              <button id="botaoExcluir">
-                Excluir Gene
-              </button>
+
+              <button id="botaoModificar" onClick={() => setModalAberto("EDIT")}>Modificar Gene</button>
             </div>
           </>
         ) : (
           <div id="geneVazio">
             <p>Sequência genética nula.</p>
-            <button id="adicionarGene">Adicionar Gene</button>
+            <button id="adicionarGene" onClick={() => setModalAberto("ADD")}>Adicionar Gene</button>
           </div>
         )}
       </div>
+      {modalAberto === "EDIT" &&(
+        <ModalModifGene
+          fechar={() => setModalAberto(null)}  
+          selecionado={selecionado} 
+          setDinossauros={setDinossauros}
+        />
+      )}
+      {modalAberto === "ADD" &&(
+        <ModalAddGene
+          fechar={() => setModalAberto(null)}  
+          selecionado={selecionado} 
+          setDinossauros={setDinossauros}
+        />
+      )}
     </main>
   )
 }

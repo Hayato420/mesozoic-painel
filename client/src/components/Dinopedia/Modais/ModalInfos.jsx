@@ -1,6 +1,5 @@
-import {alerta} from "./Alertas"
+import {alerta} from "../../Alertas"
 
-import "../styles/Alertas.css"
 import "../styles/Modais.css"
 
 //FUNÇÃO DE EXCLUSÃO

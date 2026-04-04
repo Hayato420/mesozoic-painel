@@ -37,10 +37,10 @@ app.post('/especies', async (req, res) =>{
     res.status(201).json(rows[0])
 
   } catch (err){
-    console.error("--- ERRO NO POST ---");
-    console.error(err.message); // Isso vai imprimir o erro real no terminal
-    console.error("--------------------");
-    res.status(500).json({error: "Erro interno."})
+    if (err.code === '23505'){//23505->violação de unicidade, nome já existe
+      return res.status(400).json({ error: "Esta espécie já foi catalogada." })
+    }
+    res.status(500).json({ error: "Erro interno ao salvar espécie." })
   }
 })
 
@@ -48,15 +48,13 @@ app.patch('/especies/:id', async (req, res) =>{
   const {id} = req.params
   const fields = req.body
 
-  try{
-
+  try {
     if (Object.keys(fields).length === 0){
       return res.status(400).json({error: "Preencha algum campo para atualizar."})
     }
 
     const setClauses = []
     const values = []
-
     let index = 1
 
     for (const key in fields){
@@ -65,25 +63,84 @@ app.patch('/especies/:id', async (req, res) =>{
       index++
     }
 
-    values.push(id)//põe id no final
+    values.push(id)
+
+    const query = `UPDATE especies SET ${setClauses.join(', ')} WHERE id = $${index} RETURNING *`
+    
+    const { rows } = await pool.query(query, values)
+
+    if (rows.length === 0){
+      return res.status(404).json({error: "Espécie não encontrada."})
+    }
+
+    res.status(200).json(rows[0])
+
+  } catch (err){
+    if (err.code === '23505'){//23505->violação de unicidade, nome já existe
+      return res.status(400).json({ error: "Outra espécie já possui este nome." })
+    }
+    res.status(500).json({error: "Erro interno ao atualizar."})
+  }
+})
+
+app.patch('/especies/:id', async (req, res) =>{
+  const {id} = req.params
+  const fields = req.body
+
+  //evita req maliciosa direta para a API
+  if (fields.gene !== undefined){
+    const geneParaValidar = fields.gene.toUpperCase().trim()
+    const regexGene = /^[ATCG]*$/
+
+    if (!regexGene.test(geneParaValidar)){
+      return res.status(400).json({ 
+        error: "Sequência genética inválida. Use apenas A, T, C e G." 
+      })
+    }
+  }
+
+  try{
+    if (!fields || Object.keys(fields).length === 0){
+      return res.status(400).json({error: "Preencha algum campo para atualizar."})
+    }
+
+    const setClauses = []
+    const values = []
+    let index = 1
+
+    for (const key in fields){
+      if (Object.prototype.hasOwnProperty.call(fields, key)){
+        let valor = fields[key]
+
+        if (key === 'gene' && (valor === null || valor === undefined)){
+          valor = ""
+        }
+
+        setClauses.push(`${key} = $${index}`)
+        values.push(valor)
+        index++
+      }
+    }
+
+    values.push(id)
 
     const query = `
       UPDATE especies
       SET ${setClauses.join(', ')}
       WHERE id = $${index}
       RETURNING *
-    `;
-    //WHERE id {index} -> "onde o id for o igual ao último value('fisgado pelo index'), ou seja, o próprio id"
+    `
+
     const {rows} = await pool.query(query, values)
 
     if (rows.length === 0){
-      return res.status(404).send('Espécie não encontrada.')
+      return res.status(404).json({error: "Espécie não encontrada."})
     }
 
     res.status(200).json(rows[0])
 
   } catch (err){
-    res.status(500).json({error: "Erro interno."})
+    res.status(500).json({ error: err.message })
   }
 })
 

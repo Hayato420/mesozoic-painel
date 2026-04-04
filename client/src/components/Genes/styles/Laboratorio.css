@@ -8,9 +8,39 @@
     font-size: 2rem;
 }
 
+.headerLaboratorio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5vh;
+}
+
 .laboratorio h1{
     margin: 0px;
     color: white;
+}
+
+.barraPesquisaLaboratorio{
+  font-size:1rem;
+
+  background-color: black;
+  border: 2px solid #00ff88;
+  color: #00ff88;
+
+  width: 100%;
+  line-height: 2;
+  padding: 6px 10px;
+}
+
+.barraPesquisaLaboratorio::placeholder{
+  color: white;
+  opacity: 0.9;
+}
+
+.barraPesquisaLaboratorio:focus {
+  outline: none;
+  border-color: #00ff88;
 }
 
 .listaEspeciesGenes{
@@ -30,6 +60,7 @@
     justify-content: center;
     gap: 5vh;
 }
+
 #fecharGene{
     font-size: 1rem;
 }

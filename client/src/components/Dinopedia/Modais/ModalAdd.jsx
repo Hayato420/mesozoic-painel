@@ -1,7 +1,6 @@
 import {useState, useRef} from "react"
-import {alerta} from "./Alertas"
+import {alerta} from "../../Alertas"
 
-import "../styles/Alertas.css"
 import "../styles/Modais.css"
 
 //FUNÇÃO DE ADIÇÃO
@@ -43,7 +42,7 @@ const addEspecie = async (novoDino, fechar, setDinossauros) =>{
 }
 
 //MODAL ADITIVO DE ESPÉCIES
-export default function ModalAddEspecie({fechar, setDinossauros}){
+export default function ModalAddEspecie({fechar, dinossauros, setDinossauros}){
   const [nome, setNome] = useState("")
   const [periodo, setPeriodo] = useState("")
   const [dieta, setDieta] = useState("")
@@ -54,8 +53,21 @@ export default function ModalAddEspecie({fechar, setDinossauros}){
   //REFERÊNCIA PARA SELEÇÃO DE IMAGEM, DEVE SER RETIRADA NO ELECTRON
   const arquivoRef = useRef(null)
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) =>{
     e.preventDefault()
+
+    const nomeExiste = dinossauros.some(
+      (dino) => dino.nome.toLowerCase() === nome.toLowerCase()
+    )
+
+    if (nomeExiste){
+      return alerta.fire({
+        title: 'Nome duplicado!',
+        text: 'Já existe uma espécie cadastrada com este nome.',
+        showConfirmButton: true,
+        confirmButtonText: 'Fechar'
+      })
+    }
 
     if (
         !nome.trim() ||
@@ -68,7 +80,7 @@ export default function ModalAddEspecie({fechar, setDinossauros}){
         return
     }
 
-    const novoDino = {
+    const novoDino ={
       nome,
       periodo,
       dieta,

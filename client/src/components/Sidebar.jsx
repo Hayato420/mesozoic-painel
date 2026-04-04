@@ -1,4 +1,6 @@
-export default function Sidebar({ aba, setAba }) {
+import "../styles/Sistema.css"
+
+export default function Sidebar({aba, setAba}){
   const abas =[
     { id: "dinopedia", nome: "Dinopédia" },
     { id: "genes", nome: "Genes" },
