@@ -1,44 +1,43 @@
 # 🦖 Mesozoic Painel - Full Stack Personal Project
-
-> Painel interativo para exploração e gerenciamento de dados em um "parque mesozoico".
-
+> Painel interativo de controle biotecnológico e administração de parques mesozoicos.
 
 ## 📝 Sobre o Mesozoic Painel
-Este é um projeto **Full Stack** desenvolvido para consolidar e aprimorar conhecimentos em *criação de interfaces responsivas, integração de APIs e manipulação de arquivos JSON*. O sistema simula um painel de controle de um parque com animais pré-históricos, atualmente contendo informações sobre espécies e, futuramente, outras funcionalidades planejadas.
+Este é um projeto **Full Stack pessoal** desenvolvido para consolidar conhecimentos em criação de **interfaces responsivas** e **integração de APIs**. O sistema utiliza uma comunicação eficiente entre um front-end reativo e um **banco de dados relacional (PostgreSQL)**, indo além da simples manipulação de arquivos JSON para garantir a persistência e integridade dos dados em um ambiente escalável. O sistema simula um painel de controle de um parque com animais pré-históricos, atualmente contendo **CRUD** de espécies, suas sequências genéticas e, futuramente, outras funcionalidades.
 
 ## 🚀 Tecnologias Utilizadas
-
 ### Front-end
-* **React (Biblioteca de UI)**: Composição da *lógica* visual e *Otimiza* User Experience **(UX)**.
 
-* **Vite (Build Tool)**: Favorece Developer Experience **(DX)** e *Otimização* final do site.
+* React.js: Criar uma interface reativa baseada em componentes reutilizáveis e gerenciamento de estado via Hooks.
 
-* **CSS3 (Layout e Design System)**: Estilização *modular* + Animações *customizadas*.
+* Vite: Ferramenta de build para garantir um ambiente de desenvolvimento rápido e alta performance no carregamento final do site.
 
-* **JavaScript (ES6+)**: *Manipulação* de estados + *Hooks* + *Lógica* de interface dinâmica.
+* CSS3: Estilização modular feita **do zero (sem frameworks externos)**, focada em criar uma interface imersiva e responsiva para o painel.
 
-### Back-end
-* **Node.js (Runtime)**: Ambiente de execução do *server* e gerenciamento de pacotes.
+* SweetAlert2: Biblioteca integrada para padronizar os alertas de confirmação, sucesso e erro em todas as operações.
 
-* **Express (Framework Web)**: Cria *roteamento* e *API REST própria*.
+### Back-end & Database
 
-* **JSON & fs (Persistência de Dados)**: Permite *mock* de banco de dados e armazenamento das informações em um ambiente simulado realista.
+* Node.js & Express: Estruturação de uma API REST que lida com requisições assíncronas para o processamento de dados do parque.
+
+* PostgreSQL: Banco de dados relacional utilizado para garantir que informações críticas (como Genes) sejam salvas com segurança e integridade.
+
+* node-postgres (pg): Driver utilizado para conectar o servidor ao banco, permitindo a execução de comandos SQL dinâmicos (como atualizações parciais e totais via PATCH).
 
 ## 🛠️ Funcionalidades
 ✅ Concluído | 🟦 Em desenvolvimento | ⬜ Planejado
 
-✅ **Loading Screen -->** Exibida por simulação de latência;
+✅ Loading Screen --> Exibida por simulação de latência;
+✅ Efeitos Sonoros --> Implementação de áudios globais para imersão na interface;
+✅ Sidebar Dinâmica --> Menu responsivo com rotas de navegação;
+✅ Modelagem e Persistência de Dados --> Estruturação de banco de dados relacional (PostgreSQL) para catálogo e sequenciamento genético;
+✅ Integridade de Dados --> Sistema de unicidade de registros (Unique Keys) para nomes de espécies e genes;
+✅ PATCH Dinâmico --> Atualizações parciais de dados otimizadas no servidor;
 
-✅ **Efeitos Sonoros -->** Implementação de áudios globais para imersão na interface;
+✅ Sequenciador de **Genes**: CRUD de cadeias genéticas com validação de bases nitrogenadas (ATCG) e visualização dinâmica;
+✅ **Dinopédia**: CRUD completo de espécies com persistência e validação em banco de dados SQL;
+⬜ Monitoramento de **Recintos**: Integração informacional entre espécimes e habitats;
+⬜ Sistema de **Câmeras**: Interface de visualização simulada para cada recinto;
+⬜ **Mapa** de Infraestrutura: Visualização geográfica responsiva, interativa e informacional.
 
-✅ **Sidebar Dinâmica -->** Menu responsivo com rotas de navegação;
-
-🟦 **Catálogo de Dinossauros -->** Informações específicas de cada espécie catalogada, integrado com a API supramencionada;
-
-⬜ **Mapa Interativo -->** Visualização geográfica e responsiva da infraestrutura;
-
-⬜ **Mock de Dados -->** Simulação de banco de dados para sequenciamento de genes;
-
-⬜ **Gestão de Recintos -->** Sistema de monitoramento informacional dos habitats e seus respectivos espécimes;
-
-⬜ **Monitoramento por Câmeras -->** Sistema de visualização simulada em tempo real.
+## 🎥 Demonstração
+![Demonstração do Mesozoic Painel](./client/public/assets/demo.gif)
