@@ -1,8 +1,11 @@
+# ⚠️ Status do Projeto: Em Pausa Temporária
+> Este projeto se encontra em pausa temporária devido a **problemas técnicos de hardware / foco em outro projeto (GameDev)**. Sinta-se à vontade para explorar o código.
+
 # 🦖 Mesozoic Painel - Full Stack Personal Project
-> Painel interativo de controle biotecnológico e administração de parques mesozoicos.
+> Painel interativo de **controle biotecnológico e administração de parques mesozoicos retrô**.
 
 ## 📝 Sobre o Mesozoic Painel
-Este é um projeto **Full Stack pessoal** desenvolvido para consolidar conhecimentos em criação de **interfaces responsivas** e **integração de APIs**. O sistema utiliza uma comunicação eficiente entre um front-end reativo e um **banco de dados relacional (PostgreSQL)**, indo além da simples manipulação de arquivos JSON para garantir a persistência e integridade dos dados em um ambiente escalável. O sistema simula um painel de controle de um parque com animais pré-históricos, atualmente contendo **CRUD** de espécies, suas sequências genéticas e, futuramente, outras funcionalidades.
+Este é um projeto **Full Stack pessoal** desenvolvido para consolidar conhecimentos em criação de **interfaces responsivas** e **integração de APIs**. O sistema utiliza uma comunicação eficiente entre um front-end reativo e um **banco de dados relacional (PostgreSQL)**, indo além da simples manipulação de arquivos JSON para garantir a persistência e integridade dos dados em um ambiente escalável. O sistema simula um painel de controle de um parque retrô com animais pré-históricos, atualmente contendo **CRUD** de espécies, suas sequências genéticas e, futuramente, outras funcionalidades.
 
 ## 🚀 Tecnologias Utilizadas
 ### Front-end
@@ -11,7 +14,7 @@ Este é um projeto **Full Stack pessoal** desenvolvido para consolidar conhecime
 
 * Vite: Ferramenta de build para garantir um ambiente de desenvolvimento rápido e alta performance no carregamento final do site.
 
-* CSS3: Estilização modular feita **do zero (sem frameworks externos)**, focada em criar uma interface imersiva e responsiva para o painel.
+* CSS3: Estilização modular feita **do zero (sem frameworks externos)**, focada em criar uma interface imersiva e responsiva para o painel, com **estética retrô**.
 
 * SweetAlert2: Biblioteca integrada para padronizar os alertas de confirmação, sucesso e erro em todas as operações.
 
