@@ -1,12 +1,14 @@
 import {useState, useRef} from "react"
-import {alerta} from "../../Alertas"
+import {alerta} from "../../common/Alertas/Alertas"
 
 import "../styles/Modais.css"
+
+const API_URL = import.meta.env.VITE_API_URL
 
 //FUNÇÃO DE ADIÇÃO
 const addEspecie = async (novoDino, fechar, setDinossauros) =>{
     try {
-      const res = await fetch("http://localhost:3001/especies",{
+      const res = await fetch(`${API_URL}/especies`,{
         method: "POST",
         headers: {
           "Content-Type": "application/json"

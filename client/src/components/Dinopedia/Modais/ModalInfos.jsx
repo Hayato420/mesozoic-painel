@@ -1,6 +1,8 @@
-import {alerta} from "../../Alertas"
+import {alerta} from "../../common/Alertas/Alertas"
 
 import "../styles/Modais.css"
+
+const API_URL = import.meta.env.VITE_API_URL
 
 //FUNÇÃO DE EXCLUSÃO
 const delEspecie = async (id, nome, fechar, setDinossauros) =>{
@@ -12,9 +14,9 @@ const delEspecie = async (id, nome, fechar, setDinossauros) =>{
       cancelButtonText: 'Cancelar'
     })
 
-    if (resultado.isConfirmed) {
+    if (resultado.isConfirmed){
       try{
-        const res = await fetch(`http://localhost:3001/especies/${id}`, {
+        const res = await fetch(`${API_URL}/especies/${id}`, {
           method: "DELETE",
         })
 

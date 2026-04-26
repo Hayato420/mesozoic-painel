@@ -1,6 +1,6 @@
 import {useState} from "react"
 import {ModalModifGene, ModalAddGene} from "./ModificacoesGenes"
-import {alerta} from "../Alertas"
+import {alerta} from "../common/Alertas/Alertas"
 
 import "./styles/Gene.css"
 

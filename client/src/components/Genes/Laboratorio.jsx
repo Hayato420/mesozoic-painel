@@ -1,35 +1,17 @@
 import {useState, useEffect, useMemo} from "react"
 
+import BuscaEspecies from "../common/BuscaEspecies"
 import Gene from "./Gene"
 import "./styles/Laboratorio.css"
 
 export default function Laboratorio(){
-  const [dinossauros, setDinossauros] = useState([])
-  const [busca, setBusca] = useState("")
+  const {dinossauros, setDinossauros, busca, setBusca, dinosFiltrados} = BuscaEspecies()
   const [selecionadoId, setSelecionadoId] = useState(null)
 
-  const dinosFiltrados = useMemo(() =>{
-    return (Array.isArray(dinossauros) ? dinossauros : [])
-      .filter(dino => (dino.nome || "").toLowerCase().includes(busca.toLowerCase()))
-  }, [dinossauros, busca])
-
-  const selecionado = useMemo(() =>{ //atualiza modificações de Gene sem recarregar
-    return dinossauros.find(dino => dino.id === selecionadoId) || null;
+  //atualiza front após modif/add gene sem precisar recarregar a página
+  const selecionado = useMemo(() =>{
+    return dinossauros.find(dino => dino.id === selecionadoId) || null
   }, [dinossauros, selecionadoId])
-
-  useEffect(() =>{
-    async function carregarDinos(){
-      try{
-        const res = await fetch("http://localhost:3001/especies")
-        const data = await res.json()
-        setDinossauros(data)
-      } catch(err){
-        console.error("Erro na busca de espécies: ", err)
-      }
-    }
-
-    carregarDinos()
-  }, [])
 
   return(
     <div className="laboratorio">
@@ -43,10 +25,12 @@ export default function Laboratorio(){
         />
       </header>
 
-      {selecionado === null ? (
+      {selecionadoId === null ? (
         <div className="listaEspeciesGenes">
           {dinosFiltrados.map(dino => (
-            <button key={dino.id} onClick={() => setSelecionadoId(dino.id)}>
+            <button 
+              key={dino.id} 
+              onClick={() => setSelecionadoId(dino.id)}>
               {dino.nome}
             </button>
           ))}

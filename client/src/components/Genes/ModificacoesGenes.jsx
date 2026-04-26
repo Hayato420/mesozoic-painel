@@ -1,7 +1,9 @@
 import {useState, useEffect} from "react"
-import {alerta} from "../Alertas"
+import {alerta} from "../common/Alertas/Alertas"
 
 import "./styles/ModificacoesGenes.css"
+
+const API_URL = import.meta.env.VITE_API_URL
 
 const validarGene = (sequencia) =>{
   const regex = /^[ATCG]*$/
@@ -18,7 +20,7 @@ const alterarGene = async (geneEditado, selecionadoID, setDinossauros) =>{
   }
 
   try {
-    const res = await fetch(`http://localhost:3001/especies/${selecionadoID}`,{
+    const res = await fetch(`${API_URL}/especies/${selecionadoID}`,{
       method: "PATCH",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(geneEditado)

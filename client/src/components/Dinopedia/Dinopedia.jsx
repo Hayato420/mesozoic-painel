@@ -1,5 +1,6 @@
 import {useState, useEffect, useMemo} from "react"
 
+import BuscaEspecies from "../common/BuscaEspecies"
 import ModalAddEspecie from "./Modais/ModalAdd"
 import ModalEditEspecie from "./Modais/ModalEdit"
 import ModalInfos from "./Modais/ModalInfos"
@@ -7,8 +8,7 @@ import ModalInfos from "./Modais/ModalInfos"
 import "./styles/Dinopedia.css"
 
 export default function Dinopedia(){
-  const [dinossauros, setDinossauros] = useState([])//serve para mostrar os dinossauros catalogados
-  const [busca, setBusca] = useState("")//serve para pesquisar dinossauros na searchbar
+  const {dinossauros, setDinossauros, busca, setBusca, dinosFiltrados} = BuscaEspecies()
   const [selecionado, setSelecionado] = useState(null)//serve para mostrar as informações da espécie selecionada, também servindo para excluí-la
   const [dinoEditando, setDinoEditando] = useState(null)//diz qual dino está sendo editado
 
@@ -18,25 +18,6 @@ export default function Dinopedia(){
     EDIT: "edit",
     INFOS: "infos"
   }
-
-  const dinosFiltrados = useMemo(() => { //useMemo evita recalcular tudo toda vez, otimizando performance
-    return (Array.isArray(dinossauros) ? dinossauros : [])
-            .filter(dino => (dino.nome || "").toLowerCase().includes(busca.toLowerCase()))
-  }, [dinossauros, busca])
-
-  useEffect(() =>{
-    async function carregarDinos(){
-      try{
-        const res = await fetch("http://localhost:3001/especies")
-        const data = await res.json()
-        setDinossauros(data)
-      } catch(err){
-        console.error("Erro na busca de espécies: ", err)
-      }
-    }
-
-    carregarDinos()
-  }, [])
 
   return(
     <div className="catalogo">

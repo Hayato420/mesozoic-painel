@@ -1,12 +1,14 @@
 import {useState, useEffect, useRef} from "react"
-import {alerta} from "../../Alertas"
+import {alerta} from "../../common/Alertas/Alertas"
 
 import "../styles/Modais.css"
+
+const API_URL = import.meta.env.VITE_API_URL
 
 //FUNÇÃO DE EDIÇÃO
 const editEspecie = async (novasInfos, id, fechar, setDinossauros) =>{
   try{
-    const res = await fetch(`http://localhost:3001/especies/${id}`, {
+    const res = await fetch(`${API_URL}/especies/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(novasInfos)
